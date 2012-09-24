@@ -35,10 +35,20 @@
           .addClass('l_' + namespace_i)
           .find('a')
           .each(function () {
+            if( $(this).parent("li ul li").length  ) {
             options +=
               '<option value="' + $(this).attr('href') + '">' +
               $(this).text() +
               '</option>';
+            } else {
+            options +=
+              '<optgroup label="' +
+              $(this).text() +
+              '">' +
+              '<option value="' + $(this).attr('href') + '">' +
+              $(this).text() +
+              '</option>';
+            }
           });
 
         // Append options into a select
